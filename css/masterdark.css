@@ -1,0 +1,56 @@
+body{
+  background-color: #212121;
+}
+.logo{
+  width: 10%;
+
+}
+
+.brand-logo{
+  margin-left: 5%;
+}
+
+.hide-on-med-and-down{
+  margin-right: 5%;
+}
+
+
+.sel{
+  background-color: #49599a;
+}
+
+.card{
+  width: 30%;
+}
+.text{
+
+  color: #f44336;
+}
+
+.block{
+  tex
+}
+.blockquote{
+
+}
+h1, h5, h6, p, h4,input, h2, blockquote, span{
+  color: white;
+}
+.grey-text.text-darken-4 {
+  color:white;
+}
+nav, footer {
+  background-color: #3949ab;
+}
+
+footer {
+  padding-top: 20px;
+  color: #fff;
+}
+.footer-copyright{
+  background-color: #00227b;
+}
+.chip{
+  background-color: #1b1b1b;
+  color:white;
+}

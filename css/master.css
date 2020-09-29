@@ -1,0 +1,49 @@
+body {
+  background-color: #FFEBEE;
+}
+
+.logo {
+  width: 10%;
+}
+
+.brand-logo {
+  margin-left: 5%;
+}
+
+.hide-on-med-and-down {
+  margin-right: 5%;
+}
+
+.sel {
+  background-color: #49599a;
+}
+
+.card {
+  width: 30%;
+}
+
+.text {
+  color: #f44336;
+}
+
+.block {
+  tex
+}
+
+.blockquote {}
+
+.off {
+  margin-right: 2%;
+}
+
+nav, footer {
+  background-color: #3949ab;
+}
+
+footer {
+  padding-top: 20px;
+  color: #fff;
+}
+.footer-copyright{
+  background-color: #00227b;
+}

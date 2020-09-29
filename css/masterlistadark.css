@@ -1,0 +1,41 @@
+body{
+  background-color: #212121;
+}
+.logo{
+  width: 10%;
+
+}
+
+.brand-logo{
+  margin-left: 5%;
+}
+
+.hide-on-med-and-down{
+  margin-right: 5%;
+}
+
+
+.sel{
+  background-color: #49599a;
+}
+
+.card{
+  width: 30%;
+}
+.text{
+
+  color: #f44336;
+}
+
+.block{
+  tex
+}
+.blockquote{
+
+}
+h1, h4, blockquote, span, td, thead{
+  color: white;
+}
+footer{
+  background-color: #3949ab;
+}

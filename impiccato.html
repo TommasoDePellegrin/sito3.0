@@ -1,0 +1,158 @@
+<!-- Prof dato che non avevo voglia di fare un altro file css ho voluto includere tutto su un unico file -Tommy -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/master.css">
+  <meta charset="utf-8">
+  <title>Impiccato</title>
+  <style media="screen">
+    h4 {
+      text-align: center;
+    }
+
+    input {
+      text-align: center;
+      width: 30px;
+    }
+
+    .centro {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="indigo darken-1">
+    <div class="nav-wrapper">
+      <a href="index.html" class="brand-logo">TDP</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down" style="margin-right: 5%;">
+        <li><a href="tps.html">TPS</a></li>
+        <li><a href="sistemi.html">Sistemi</a></li>
+        <li style="margin-right: -3%;">darkmode:</li>
+        <li>
+          <a class="off waves-effect waves-light btn disabled " style="margin-right:-11.5%;">OFF</a>
+          <a class="waves-effect waves-light btn" href="impiccatodark.html">ON</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" style="text-align:center;margin-top:10%;">
+    <h2>Gioco dell'impiccato</h2>
+    <h6 style="color: rgba(0,0,0,0.6);margin-bottom:2%;">~tag~</h6>
+    <hr style="width:10%;">
+    <div class="chip">
+      New
+    </div>
+    <div class="chip">
+      <img src="logo/sistemi.png">
+      Sistemi
+    </div>
+    <div class="chip">
+      <img src="logo/js.png">
+      Javascript
+    </div>
+    <div class="chip">
+      <img src="logo/html.png">
+      Html
+    </div>
+        <hr style="width:10%;">
+    <br>
+    <h4 id="text"></h4>
+    <div class="centro">
+
+      <input  maxlength="1" onfocus="this.value=''" type="text" id="tentativo" style="width:16%;">
+       <a class="btn-floating btn-small waves-effect waves-light red " onclick="controlla();"><i class="fas fa-plus"></i></a>
+      <h6 id="errors">Errori: 0</h6>
+      <p id="tried"></p>
+    </div>
+
+
+</div>
+  <footer style="margin-top:15%;">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Coded by Tommaso De pellegrin</h5>
+          <p class="grey-text text-lighten-4"></p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="https://sites.google.com/site/informaticainsieme/">Sito Prof. Biscaro</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://docs.google.com/spreadsheets/d/1rluoTDSGf8ialToVQ4BPB_OEans_Vh18vU0oDALCOmI/edit?usp=drive_web&ouid=114002960734101934675">link documento google fogli
+            <li><a class="grey-text text-lighten-3" href="lista.html">Siti della classe</a></li></a></li>
+            <li><a class="grey-text text-lighten-3" href="https://discord.gg/KEJQkWH">Link Discord</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2020 Copyright TDP
+
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript">
+    var parole = ["ciao", "prof", "Biscaro"];
+    var parolaDaIndovinare = parole[Math.floor(Math.random() * parole.length)];
+    var pNascosta = "";
+    var l;
+    var erorimax = 6;
+    var lettereProvate = new Array();
+    var trovata = 0;
+    var errori = 0; // errori fatti
+    for (i = 0; i < parolaDaIndovinare.length; i++) {
+      if (parolaDaIndovinare.charAt(i) == " ") pNascosta += " ";
+      else pNascosta += "_";
+    }
+    document.getElementById("text").innerHTML = pNascosta;
+    console.log(pNascosta);
+
+    function setCharAt(str, index, chr) {
+      if (index > str.length - 1) return str;
+      return str.substring(0, index) + chr + str.substring(index + 1);
+    }
+
+
+    function controlla() {
+      l = document.getElementById("tentativo").value;
+      if (lettereProvate.includes(l)) {} else {
+        if (l != " " && l != "") {
+          lettereProvate.push(l);
+          document.getElementById("tried").innerHTML = "Lettere provate: " + lettereProvate;
+          trovata = 0;
+          for (i = 0; i < parolaDaIndovinare.length; i++) {
+            if (parolaDaIndovinare.charAt(i) == l.toLowerCase() || parolaDaIndovinare.charAt(i) == l.toUpperCase()) {
+              trovata = 1;
+              pNascosta = setCharAt(pNascosta, i, parolaDaIndovinare.charAt(i));
+              document.getElementById("text").innerHTML = pNascosta;
+              console.log(pNascosta);
+            }
+          }
+          if (trovata == 0) {
+            errori++;
+            document.getElementById("errors").innerHTML = "Errori: " + errori + "/" + erorimax;
+            if (errori >= erorimax) {
+              document.getElementById("button").innerHTML = "Hai perso.";
+              var prev = document.getElementById("button");
+              var next = document.createElement('div');
+              next.innerHTML = prev.innerHTML;
+              prev.parentNode.replaceChild(next, prev);
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://kit.fontawesome.com/07744720d0.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+
+</html>
